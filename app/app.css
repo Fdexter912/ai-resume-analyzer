@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
   --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif,
@@ -37,13 +38,13 @@ h2 {
 label {
   @apply text-dark-200;
 }
-input {
-  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
-}
+/*input {*/
+/*  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;*/
+/*}*/
 
-textarea {
-  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
-}
+/*textarea {*/
+/*  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;*/
+/*}*/
 
 form {
   @apply flex flex-col items-start gap-8 w-full;
@@ -51,10 +52,14 @@ form {
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+    @apply bg-clip-text text-transparent
+    bg-linear-to-r from-[#AB8C95] via-black to-[#8E97C5];
   }
   .gradient-border {
-    @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
+    @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200
+    dark:from-[#1e2235] dark:to-[#1a1d2e]
+    dark:border dark:border-[#2a2f45]
+    p-4 rounded-2xl;
   }
   .primary-button {
     @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full;
@@ -65,7 +70,7 @@ form {
   .resume-summary {
     @apply flex flex-row items-center justify-center p-4 gap-4;
     .category {
-      @apply flex flex-row gap-2 items-center bg-gray-50 rounded-2xl p-4 w-full justify-between;
+      @apply flex flex-row items-center justify-between px-4 py-3 border-t border-gray-100 dark:border-[#2a2f45];
     }
   }
   .back-button {
@@ -85,7 +90,11 @@ form {
   }
 
   .resume-card {
-    @apply flex flex-col gap-4 h-[500px] w-[350px] lg:w-[430px] xl:w-[490px] bg-white rounded-2xl p-4 shadow-sm;
+    @apply flex flex-col gap-4 w-[350px] lg:w-[430px] xl:w-[490px]
+    bg-white dark:bg-[#13161f]
+    rounded-2xl p-4 shadow-sm
+    dark:border dark:border-[#2a2f45]
+    dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)];
   }
 
   .resume-card-header {
@@ -97,7 +106,10 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto;
+    @apply flex flex-row justify-between items-center
+    bg-white dark:bg-[#13161f]
+    dark:border dark:border-[#2a2f45]
+    rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto;
   }
 
   .score-badge {
@@ -106,6 +118,25 @@ form {
 
   .form-div {
     @apply flex flex-col gap-2 w-full items-start;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-dark-200 dark:text-gray-300;
+  }
+
+  .form-input,
+  .form-textarea {
+    @apply w-full p-4 rounded-2xl border border-gray-300/70
+    bg-white text-gray-900 placeholder:text-gray-400/80
+    focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/30
+    transition-all duration-200
+    dark:bg-[#1E2235] dark:text-gray-200 dark:placeholder:text-gray-500
+    dark:border-[#2A2F45]/80 dark:focus:border-purple-500/60 dark:focus:ring-purple-500/20;
+  }
+
+  .form-input.glass,
+  .form-textarea.glass {
+    @apply inset-shadow bg-white/70 dark:bg-[#1e2235]/70 backdrop-blur-sm;
   }
 
   .uplader-drag-area {
@@ -140,6 +171,60 @@ form {
 @utility inset-shadow {
   box-shadow: inset 0 0 12px 0 rgba(36, 99, 235, 0.2);
   backdrop-filter: blur(10px);
+}
+
+@utility bg-main {
+  background:
+          radial-gradient(ellipse at 90% 10%, #7C87FB28 0%, transparent 50%),
+          radial-gradient(ellipse at 10% 80%, #FA718528 0%, transparent 50%),
+          linear-gradient(160deg, #EAF2FF 0%, #ffffff 60%, #FFF3F6 100%);
+}
+
+@utility bg-main-dark {
+  background:
+          radial-gradient(ellipse at 90% 10%, #7C87FB22 0%, transparent 50%),
+          radial-gradient(ellipse at 10% 80%, #FA718518 0%, transparent 50%),
+          linear-gradient(160deg, #0d0f1a 0%, #0f1117 50%, #160d14 100%);
+}
+
+@utility bg-auth {
+  background:
+          radial-gradient(ellipse at 0% 100%, #FA718540 0%, transparent 50%),
+          radial-gradient(ellipse at 100% 0%, #FA718530 0%, transparent 40%),
+          linear-gradient(135deg, #F0F4FF 0%, #fdfdfd 50%, #fff0f3 100%);
+}
+
+@utility bg-auth-dark {
+  background:
+          radial-gradient(ellipse at 0% 100%, #FA718520 0%, transparent 50%),
+          radial-gradient(ellipse at 100% 0%, #7C87FB18 0%, transparent 40%),
+          linear-gradient(135deg, #0d0f1a 0%, #0f1117 60%, #160d14 100%);
+}
+
+@utility bg-small {
+  background:
+          radial-gradient(ellipse at 80% 20%, #7C87FB20 0%, transparent 50%),
+          linear-gradient(160deg, #EAF2FF 0%, #f8fbff 100%);
+}
+
+@utility bg-small-dark {
+  background:
+          radial-gradient(ellipse at 80% 20%, #7C87FB18 0%, transparent 50%),
+          linear-gradient(160deg, #0d0f1a 0%, #0f1117 100%);
+}
+
+/* Reusable blob decorations */
+@utility bg-blob-purple {
+  background: radial-gradient(ellipse at top right, #7C87FB33 0%, transparent 60%);
+}
+@utility bg-blob-pink {
+  background: radial-gradient(ellipse at bottom left, #FA718533 0%, transparent 60%);
+}
+@utility bg-blob-purple-dark {
+  background: radial-gradient(ellipse at top right, #7C87FB22 0%, transparent 60%);
+}
+@utility bg-blob-pink-dark {
+  background: radial-gradient(ellipse at bottom left, #FA718522 0%, transparent 60%);
 }
 
 @keyframes fadeIn {

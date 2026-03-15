@@ -39,15 +39,15 @@ export default function Home() {
     loadResumes();
   }, []);
 
-  return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+  return <main className="bg-main dark:bg-main-dark transition-colors duration-500">
     <Navbar/>
     <section className="main-section">
       <div className="page-heading py-16">
-        <h1>Track Your Applications & Resume Ratings</h1>
+        <h1 className="text-gradient! dark:from-[#AB8C95]! dark:via-white! dark:to-[#8E97C5]!">Track Your Applications & Resume Ratings</h1>
         {!loadingResumes && resumes.length === 0 ? (
-            <h2>No resumes found. Please upload your first resume to get started.</h2>
+            <h2 className="text-gradient! dark:from-[#AB8C95]! dark:via-white! dark:to-[#8E97C5]!">No resumes found. Please upload your first resume to get started.</h2>
         ) : (
-            <h2>Review your submissions and check AI-powered feedback.</h2>
+            <h2 className="text-gradient! dark:from-[#AB8C95]! dark:via-white! dark:to-[#8E97C5]!">Review your submissions and check AI-powered feedback.</h2>
         )}
       </div>
       {loadingResumes && (

@@ -4,6 +4,7 @@ import {usePuterStore} from "~/lib/puter";
 import Summary from "~/components/Summary";
 import ATS from "~/components/ATS";
 import Details from "~/components/Details";
+import Navbar from "~/components/Navbar";
 
 export const meta = () => ([
     { title: 'ResumeIQ | Review' },
@@ -49,15 +50,16 @@ const Resume = () => {
 
     }, [id])
     return (
-        <main className="!pt-0">
-            <nav className="resume-nav">
-                <Link to="/" className="back-button">
-                    <img src="/icons/back.svg" alt="Back" className="w-2.5 h-2.5" />
-                    <span className="text-gray-800 text-sm font-semibold">Back to Homepage</span>
-                </Link>
-            </nav>
+        <main className="!pt-0 bg-main dark:bg-main-dark transition-colors duration-500 min-h-screen">
+            <Navbar/>
+            {/*<nav className="resume-nav dark:bg-[#0d0f1a] dark:border-[#2a2f45]">*/}
+            {/*    <Link to="/" className="back-button dark:border-[#2a2f45] dark:bg-[#13161f]">*/}
+            {/*        <img src="/icons/back.svg" alt="Back" className="w-2.5 h-2.5" />*/}
+            {/*        <span className="text-gray-800 dark:text-gray-300 text-sm font-semibold">Back to Homepage</span>*/}
+            {/*    </Link>*/}
+            {/*</nav>*/}
             <div className="flex flex-row w-full max-lg:flex-col-reverse">
-                <section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover flex items-start justify-center overflow-y-auto">
+                <section className="feedback-section bg-small dark:bg-small-dark flex items-start justify-center overflow-y-auto transition-colors duration-500">
                     {imageUrl && resumeUrl ? (
                         <div className="animate-in fade-in duration-1000 gradient-border w-full">
                             <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
@@ -73,8 +75,8 @@ const Resume = () => {
                         <p className="text-gray-400 text-sm mt-10">Loading resume...</p>
                     )}
                 </section>
-                <section className="feedback-section">
-                    <h2 className="text-4xl !text-black font-bold">Resume Review</h2>
+                <section className="feedback-section dark:bg-[#0d0f1a] transition-colors duration-500">
+                    <h2 className="text-4xl !text-black dark:!text-white font-bold">Resume Review</h2>
                     {feedback ? (
                         <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
                             <Summary feedback={feedback}/>

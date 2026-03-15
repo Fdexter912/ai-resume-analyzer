@@ -74,35 +74,35 @@ const Upload = () => {
         setFile(file);
     }
     return (
-        <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+        <main className="bg-main dark:bg-main-dark transition-colors duration-500">
             <Navbar/>
             <section className="main-section">
                 <div className="page-heading py-16">
-                    <h1>Smart feedback for your resume</h1>
+                    <h1 className="text-gradient! dark:from-[#AB8C95]! dark:via-white! dark:to-[#8E97C5]!">Smart feedback for your resume</h1>
                     {isProcessing ? (
                         <>
                             <h2>{statusText}</h2>
                             <img src="/images/resume-scan.gif" className="w-full" />
                         </>
                     ) : (
-                        <h2>Drop your resume for an ATS score and improvement tips.</h2>
+                        <h2 >Drop your resume for an ATS score and improvement tips.</h2>
                     )}
                     {!isProcessing && (
                         <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
                             <div className="form-div">
-                                <label htmlFor="company-name">Company Name</label>
-                                <input type="text" id="company-name" name="company-name" placeholder="Company Name"/>
+                                <label className="dark:text-white!" htmlFor="company-name">Please enter company name</label>
+                                <input type="text" id="company-name" name="company-name" placeholder="Company Name" className="form-input"/>
                             </div>
                             <div className="form-div">
-                                <label htmlFor="job-title">Job Title</label>
-                                <input type="text" id="job-title" name="job-title" placeholder="Job Title"/>
+                                <label className="dark:text-white!" htmlFor="job-title">Please enter job title</label>
+                                <input type="text" id="job-title" name="job-title" placeholder="Job Title" className="form-input"/>
                             </div>
                             <div className="form-div">
-                                <label htmlFor="job-description">Job Description</label>
-                                <textarea rows={5} id="job-description" name="job-description" placeholder="Job Description"/>
+                                <label className="dark:text-white!" htmlFor="job-description">Please enter job description</label>
+                                <textarea rows={5} id="job-description" name="job-description" placeholder="Job Description" className="form-input"/>
                             </div>
                             <div className="form-div">
-                                <label htmlFor="uploader">Upload Resume</label>
+                                <label className="dark:text-white!" htmlFor="uploader">Upload Resume</label>
                                 <FileUploader onFileSelect={handleFileSelect}/>
                             </div>
                             <button className="primary-button" type="submit">
