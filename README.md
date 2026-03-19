@@ -1,87 +1,120 @@
-# Welcome to React Router!
+# 📄 AI Resume Analyzer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+AI-powered resume analysis tool designed to help job seekers improve their resumes by providing actionable feedback on content, structure, tone, and ATS (Applicant Tracking System) compatibility.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![React Router](https://img.shields.io/badge/React_Router-7.12.0-red)](https://reactrouter.com/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.13-blue)](https://tailwindcss.com/)
 
 ---
 
-Built with ❤️ using React Router.
+## 📝 Table of Contents
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+---
+
+## ✨ Features
+
+- 🤖 **AI-Powered Analysis**: Uses advanced LLM integration to scan resumes and provide detailed critiques.
+- 🔍 **ATS Compatibility Scoring**: Get specific feedback on how well your resume matches ATS requirements.
+- 📊 **Detailed Feedback Categories**: Broken down into **Tone & Style**, **Content**, **Structure**, and **Skills**.
+- 📑 **PDF to Image Conversion**: Automatically converts PDF resumes into visual previews for easier review.
+- 🌙 **Dark/Light Mode**: Seamless theme switching for a better user experience.
+- 📂 **Puter.js Integration**: Uses Puter as a backend for file system storage and AI operations.
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend/Framework** | React 19, React Router 7, Next.js (via React Router) |
+| **Styling** | Tailwind CSS, `tw-animate-css` |
+| **State Management** | Zustand |
+| **Language** | TypeScript |
+| **PDF Processing** | `pdfjs-dist` |
+| **Infrastructure** | Docker, Puter.js SDK |
+
+---
+
+## 🚀 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Fdexter912/ai-resume-analyzer.git
+   cd ai-resume-analyzer
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 💡 Usage
+
+1. **Authentication**: Upon visiting, you will be prompted to sign in (via Puter).
+2. **Upload**: Navigate to the `/upload` page.
+3. **Provide Context**: Enter the Target Company, Job Title, and Job Description.
+4. **Analyze**: Drag and drop your PDF resume. The system will convert it, process it via AI, and store the resulting scores.
+5. **Review**: View the comprehensive report on the `/resume/:id` page.
+
+---
+
+## 📁 Project Structure
+
+```text
+app/
+├── components/   # UI components (ATS, Summary, Uploaders)
+├── lib/          # Helper utilities (PDF processing, Puter store, themes)
+├── routes/       # Application pages
+├── root.tsx      # App entry point
+└── routes.ts     # Routing configuration
+constants/        # AI prompts and schema configurations
+public/           # Static assets (icons, images)
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+1. Fork the repo.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+---
+
+## 📜 License
+
+This project is currently unlicensed. Please refer to the repository owner for permissions.
+
+---
+
+## ⚓ Footer
+
+**AI Resume Analyzer** | [View on GitHub](https://github.com/Fdexter912/ai-resume-analyzer) 
+
+*If you find this project useful, please consider giving it a ⭐️ on GitHub!*
+
+---
+**<p align="center">Generated by [ReadmeCodeGen](https://www.readmecodegen.com/)</p>**
