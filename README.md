@@ -1,4 +1,4 @@
-# 📄 AI Resume Analyzer
+# 📄 ResumeIQ - AI Resume Analyzer
 
 AI-powered resume analysis tool designed to help job seekers improve their resumes by providing actionable feedback on content, structure, tone, and ATS (Applicant Tracking System) compatibility.
 
